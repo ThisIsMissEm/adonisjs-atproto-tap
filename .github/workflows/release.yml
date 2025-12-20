@@ -31,6 +31,7 @@ jobs:
           node-version-file: ".node-version"
           cache: pnpm
 
+      # Found this via https://github.com/tinacms/tinacms/pull/6249/files
       - name: Upgrade npm for OIDC support
         run: npm install -g npm@latest
 
