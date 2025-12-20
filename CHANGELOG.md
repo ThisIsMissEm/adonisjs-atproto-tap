@@ -1,5 +1,11 @@
 # @thisismissem/adonisjs-atproto-tap
 
+## 1.0.2
+
+### Patch Changes
+
+- [#4](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/pull/4) [`faae76d`](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/commit/faae76def2e57c02cd8f6c6bef386ef160daa2b8) Thanks [@ThisIsMissEm](https://github.com/ThisIsMissEm)! - Fix adminPassword not being set correctly
+
 ## 1.0.1
 
 ### Patch Changes
