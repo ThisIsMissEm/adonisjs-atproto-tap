@@ -1,0 +1,21 @@
+{{{
+  exports({ to: app.startPath('indexer.ts') })
+}}}
+{{#var identityEvt = '`${evt.did} updated identity: ${evt.handle} (${evt.status})`' }}
+{{#var atUri = '`at://${evt.did}/${evt.collection}/${evt.rkey}`' }}
+{{#var upsertEvt = '`${evt.action}: ${uri}`' }}
+{{#var deleteEvt = '`deleted: ${uri}`' }}
+import indexer from '@thisismissem/adonisjs-atproto-tap/services/indexer'
+
+indexer.identity(async (evt) => {
+  console.log({{ identityEvt }})
+})
+
+indexer.record(async (evt) => {
+  const uri = {{ atUri }}
+  if (evt.action === 'create' || evt.action === 'update') {
+    console.log({{ upsertEvt }})
+  } else {
+    console.log({{ deleteEvt }})
+  }
+})
