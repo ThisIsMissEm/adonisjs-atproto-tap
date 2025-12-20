@@ -27,11 +27,6 @@ export default class TapProvider {
         )
       }
 
-      // FIXME: Workaround for https://github.com/bluesky-social/atproto/issues/4476
-      if (config.url.endsWith('/')) {
-        config.url = config.url.slice(0, -1)
-      }
-
       return new Tap(config.url, config.config ?? {})
     })
 

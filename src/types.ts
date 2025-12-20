@@ -2,8 +2,7 @@ import { TapConfig, Tap as TapClient } from '@atproto/tap'
 
 export type Config = {
   url: string
-  adminPassword?: string
-}
+} & TapConfig
 
 export type TapProviderConfig = {
   url: Config['url']
