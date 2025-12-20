@@ -1,5 +1,11 @@
 # @thisismissem/adonisjs-atproto-tap
 
+## 1.0.1
+
+### Patch Changes
+
+- [#2](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/pull/2) [`860f24c`](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/commit/860f24c75e57f60fdb1417e4bc4ebf6947e50bad) Thanks [@ThisIsMissEm](https://github.com/ThisIsMissEm)! - Remove unnecessary console.log
+
 ## 1.0.0
 
 ### Major Changes
