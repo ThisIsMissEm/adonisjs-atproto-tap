@@ -13,7 +13,6 @@ import { SimpleIndexer } from '@atproto/tap'
 let indexer: SimpleIndexer
 
 await app.booted(async () => {
-  console.log('Tap booted')
   indexer = await app.container.make('tap.indexer')
 })
 
