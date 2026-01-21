@@ -5,7 +5,11 @@
 {{#var atUri = '`at://${evt.did}/${evt.collection}/${evt.rkey}`' }}
 {{#var upsertEvt = '`${evt.action}: ${uri}`' }}
 {{#var deleteEvt = '`deleted: ${uri}`' }}
-import indexer from '@thisismissem/adonisjs-atproto-tap/services/indexer'
+import tap from '@thisismissem/adonisjs-atproto-tap/services/tap'
+import { SimpleIndexer } from '@atproto/tap'
+
+// You can also use LexIndexer for a lexicon aware indexer:
+const indexer = new SimpleIndexer()
 
 indexer.identity(async (evt) => {
   console.log({{ identityEvt }})
@@ -19,3 +23,13 @@ indexer.record(async (evt) => {
     console.log({{ deleteEvt }})
   }
 })
+
+// Set the indexer to use with Tap:
+tap.setIndexer(indexer)
+
+// In production, you'll probably want to use a separate process to run the
+// indexer. e.g., have a node ace command that starts the app, and then calls
+// tap.startIndexer() one the app has started.
+if (app.getEnvironment() === 'web' && app.inDev) {
+  tap.startIndexer()
+}
