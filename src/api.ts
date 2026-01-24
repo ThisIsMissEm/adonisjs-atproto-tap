@@ -1,8 +1,37 @@
-import { Tap as TapClient } from '@atproto/tap'
+import { TapChannel, Tap as TapClient, TapHandler } from '@atproto/tap'
 import { Tap } from './types.js'
+import { ApplicationService } from '@adonisjs/core/types'
+import { RuntimeException } from '@adonisjs/core/exceptions'
 
 export default class TapApi implements Tap {
-  constructor(protected client: TapClient) {}
+  #channel?: TapChannel
+  #indexer?: TapHandler
+
+  constructor(
+    protected client: TapClient,
+    protected app: ApplicationService
+  ) {}
+
+  setIndexer(indexer: TapHandler) {
+    this.#indexer = indexer
+  }
+
+  startIndexer() {
+    if (!this.#indexer) {
+      throw new RuntimeException('tap.setIndexer was never called')
+    }
+
+    if (this.#channel) {
+      throw new RuntimeException('tap.startIndexer invoked multiple times')
+    }
+
+    this.#channel = this.client.channel(this.#indexer)
+    this.#channel.start()
+
+    this.app.terminating(async () => {
+      await this.#channel?.destroy()
+    })
+  }
 
   async addRepos(dids: string[]) {
     return this.client.addRepos(dids)
