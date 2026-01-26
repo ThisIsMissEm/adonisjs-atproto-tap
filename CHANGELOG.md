@@ -1,5 +1,11 @@
 # @thisismissem/adonisjs-atproto-tap
 
+## 2.0.1
+
+### Patch Changes
+
+- [#9](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/pull/9) [`b6bc725`](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/commit/b6bc7253170ea12a270edec86d4006f3f0a639a5) Thanks [@ThisIsMissEm](https://github.com/ThisIsMissEm)! - Update `@atproto/tap` to v0.2.0
+
 ## 2.0.0
 
 ### Major Changes
