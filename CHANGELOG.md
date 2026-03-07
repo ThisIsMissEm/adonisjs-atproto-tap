@@ -1,5 +1,15 @@
 # @thisismissem/adonisjs-atproto-tap
 
+## 3.0.0
+
+### Major Changes
+
+- [#17](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/pull/17) [`938cebf`](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/commit/938cebf82a6d446e62e46ad0fcef922e8c49f76a) Thanks [@ThisIsMissEm](https://github.com/ThisIsMissEm)! - Upgrade to Adonis.js v7
+
+### Patch Changes
+
+- [#17](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/pull/17) [`12f4872`](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/commit/12f487295636e3d8d6e92eb0d8a861a7c352dac8) Thanks [@ThisIsMissEm](https://github.com/ThisIsMissEm)! - Update @atproto/tap to latest version
+
 ## 2.0.1
 
 ### Patch Changes

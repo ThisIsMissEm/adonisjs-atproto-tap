@@ -1,7 +1,7 @@
 {
   "name": "@thisismissem/adonisjs-atproto-tap",
   "description": "Adonis.js provider for AT Protocol Tap Client",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "engines": {
     "node": ">=24"
   },
