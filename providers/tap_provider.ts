@@ -1,6 +1,7 @@
 import type { ApplicationService } from '@adonisjs/core/types'
 import type { ContainerProviderContract } from '@adonisjs/core/types/app'
 import type { TapProviderConfig } from '../src/types.js'
+import type { TapConfig } from '@atproto/tap'
 
 import { RuntimeException } from '@adonisjs/core/exceptions'
 import { Tap } from '@atproto/tap'
@@ -19,6 +20,7 @@ export default class TapProvider implements ContainerProviderContract {
   register() {
     this.app.container.singleton('tap.client', async () => {
       const config = this.app.config.get<TapProviderConfig>('tap', {})
+      const tapConfig: TapConfig = config.config ?? {}
 
       if (!config || !config.url) {
         throw new RuntimeException(
@@ -26,7 +28,18 @@ export default class TapProvider implements ContainerProviderContract {
         )
       }
 
-      return new Tap(config.url, config.config ?? {})
+      if (config.adminPassword) {
+        tapConfig.adminPassword =
+          typeof config.adminPassword === 'string'
+            ? config.adminPassword
+            : config.adminPassword.release()
+      } else if (this.app.inProduction) {
+        throw new RuntimeException(
+          'Tap is configured insecurely without an adminPassword in production.'
+        )
+      }
+
+      return new Tap(config.url, tapConfig)
     })
 
     this.app.container.singleton('tap.api', async (resolver) => {

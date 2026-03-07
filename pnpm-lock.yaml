@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@poppinss/utils':
+        specifier: ^7.0.1
+        version: 7.0.1
     devDependencies:
       '@adonisjs/assembler':
         specifier: ^8.0.0

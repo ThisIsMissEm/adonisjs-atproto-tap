@@ -56,7 +56,7 @@ export async function configure(command: Configure) {
   await codemods.defineEnvValidations({
     variables: {
       TAP_URL: `Env.schema.string({ format: 'url', tld: false, protocol: true })`,
-      TAP_ADMIN_PASSWORD: `Env.schema.string.optional()`,
+      TAP_ADMIN_PASSWORD: `Env.schema.secret.optional()`,
     },
     leadingComment: 'Variables for configuring the AT Protocol Tap client',
   })
