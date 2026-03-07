@@ -1,9 +1,10 @@
+import type { ApplicationService } from '@adonisjs/core/types'
+import type { ContainerProviderContract } from '@adonisjs/core/types/app'
+import type { TapProviderConfig } from '../src/types.js'
+
 import { RuntimeException } from '@adonisjs/core/exceptions'
 import { Tap } from '@atproto/tap'
-import type { ApplicationService } from '@adonisjs/core/types'
-import type { TapProviderConfig } from '../src/types.js'
 import TapApi from '../src/api.js'
-import { ContainerProviderContract } from '@adonisjs/core/types/app'
 
 declare module '@adonisjs/core/types' {
   export interface ContainerBindings {

@@ -1,4 +1,4 @@
-import { TapConfig, Tap as TapClient } from '@atproto/tap'
+import type { TapConfig, Tap as TapClient } from '@atproto/tap'
 
 export type Config = {
   url: string

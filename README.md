@@ -54,7 +54,7 @@ services:
     platform: linux/amd64
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:2480/health"]
+      test: ['CMD', 'curl', '-f', 'http://localhost:2480/health']
       interval: 2s
       retries: 5
       start_period: 10s
@@ -65,7 +65,7 @@ services:
     environment:
       TAP_BIND: :2480
     ports:
-      - "127.0.0.1:2480:2480"
+      - '127.0.0.1:2480:2480'
 ```
 
 The `tap.env` file looks like:

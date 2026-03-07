@@ -1,6 +1,6 @@
-import { TapChannel, Tap as TapClient, TapHandler } from '@atproto/tap'
-import { Tap } from './types.js'
-import { ApplicationService } from '@adonisjs/core/types'
+import type { TapChannel, Tap as TapClient, TapHandler } from '@atproto/tap'
+import type { Tap } from './types.js'
+import type { ApplicationService } from '@adonisjs/core/types'
 import { RuntimeException } from '@adonisjs/core/exceptions'
 
 export default class TapApi implements Tap {
