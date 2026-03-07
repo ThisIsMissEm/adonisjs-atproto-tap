@@ -12,12 +12,12 @@
 |
 */
 
-import type ConfigureCommand from '@adonisjs/core/commands/configure'
+import type Configure from '@adonisjs/core/commands/configure'
 import { stubsRoot } from './stubs/main.js'
 
 type Packages = { name: string; isDevDependency: boolean }[]
 
-export async function configure(command: ConfigureCommand) {
+export async function configure(command: Configure) {
   /**
    * Prompt when `install` or `--no-install` flags are
    * not used
