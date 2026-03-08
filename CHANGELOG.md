@@ -1,5 +1,21 @@
 # @thisismissem/adonisjs-atproto-tap
 
+## 3.1.0
+
+### Minor Changes
+
+- [#22](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/pull/22) [`9fc4f44`](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/commit/9fc4f44e01d906bfe2a95afc3354e2d866e5e734) Thanks [@ThisIsMissEm](https://github.com/ThisIsMissEm)! - Enforce usage of adminPassword for Tap in production
+
+  The adminPassword must be configured in production. The adminPassword must be at least 16 characters.
+
+### Patch Changes
+
+- [#20](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/pull/20) [`189d4bd`](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/commit/189d4bd3ce25cac394f9e833817bb8ccb6b8d48d) Thanks [@ThisIsMissEm](https://github.com/ThisIsMissEm)! - More changes for Adonis.js v7
+
+- [#22](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/pull/22) [`2b41777`](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/commit/2b4177706053a32d940030cbaa3ae4956760f352) Thanks [@ThisIsMissEm](https://github.com/ThisIsMissEm)! - Use a Secret value for the adminPassword
+
+  This prevents the `adminPassword` for Tap from accidentally being logged, as the value is secret and redacted automatically in logs if someone does `console.log(env)` or similar where `env` is `import "#start/env"`.
+
 ## 3.0.0
 
 ### Major Changes
