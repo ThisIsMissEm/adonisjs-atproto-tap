@@ -50,13 +50,13 @@ export async function configure(command: Configure) {
 
   await codemods.defineEnvVariables({
     TAP_URL: 'http://localhost:2480/',
-    TAP_ADMIN_PASSWORD: 'admin-password',
+    TAP_ADMIN_PASSWORD: 'secure-admin-password',
   })
 
   await codemods.defineEnvValidations({
     variables: {
       TAP_URL: `Env.schema.string({ format: 'url', tld: false, protocol: true })`,
-      TAP_ADMIN_PASSWORD: `Env.schema.string.optional()`,
+      TAP_ADMIN_PASSWORD: `Env.schema.secret.optional()`,
     },
     leadingComment: 'Variables for configuring the AT Protocol Tap client',
   })

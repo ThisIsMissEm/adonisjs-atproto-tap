@@ -1,9 +1,12 @@
 import type { ApplicationService } from '@adonisjs/core/types'
 import type { ContainerProviderContract } from '@adonisjs/core/types/app'
 import type { TapProviderConfig } from '../src/types.js'
+import type { TapConfig } from '@atproto/tap'
 
 import { RuntimeException } from '@adonisjs/core/exceptions'
 import { Tap } from '@atproto/tap'
+
+import * as errors from '../src/exceptions.ts'
 import TapApi from '../src/api.js'
 
 declare module '@adonisjs/core/types' {
@@ -19,14 +22,32 @@ export default class TapProvider implements ContainerProviderContract {
   register() {
     this.app.container.singleton('tap.client', async () => {
       const config = this.app.config.get<TapProviderConfig>('tap', {})
+      const tapConfig: TapConfig = config.config ?? {}
 
-      if (!config || !config.url) {
+      if (!config) {
         throw new RuntimeException(
           'Invalid config exported from "config/tap.ts" file. Make sure to return an object with the url property defined'
         )
       }
 
-      return new Tap(config.url, config.config ?? {})
+      if (!config.url) {
+        throw new errors.E_MISSING_URL()
+      }
+
+      if (config.adminPassword) {
+        let adminPassword =
+          typeof config.adminPassword === 'string'
+            ? config.adminPassword
+            : config.adminPassword.release()
+
+        if (adminPassword.length < 16) {
+          throw new errors.E_INSECURE_ADMIN_PASSWORD()
+        }
+      } else if (this.app.inProduction) {
+        throw new errors.E_MISSING_ADMIN_PASSWORD()
+      }
+
+      return new Tap(config.url, tapConfig)
     })
 
     this.app.container.singleton('tap.api', async (resolver) => {
