@@ -50,7 +50,7 @@ export async function configure(command: Configure) {
 
   await codemods.defineEnvVariables({
     TAP_URL: 'http://localhost:2480/',
-    TAP_ADMIN_PASSWORD: 'admin-password',
+    TAP_ADMIN_PASSWORD: 'secure-admin-password',
   })
 
   await codemods.defineEnvValidations({
