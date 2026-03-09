@@ -43,6 +43,8 @@ export default class TapProvider implements ContainerProviderContract {
         if (adminPassword.length < 16) {
           throw new errors.E_INSECURE_ADMIN_PASSWORD()
         }
+
+        tapConfig.adminPassword = adminPassword
       } else if (this.app.inProduction) {
         throw new errors.E_MISSING_ADMIN_PASSWORD()
       }
