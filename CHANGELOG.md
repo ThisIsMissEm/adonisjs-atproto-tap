@@ -1,5 +1,11 @@
 # @thisismissem/adonisjs-atproto-tap
 
+## 3.1.2
+
+### Patch Changes
+
+- [#25](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/pull/25) [`9038bd3`](https://github.com/ThisIsMissEm/adonisjs-atproto-tap/commit/9038bd39c5e4f6dc132999af6cdbad74905b7656) Thanks [@ThisIsMissEm](https://github.com/ThisIsMissEm)! - Fix error in configure due to tsdown bundling
+
 ## 3.1.1
 
 ### Patch Changes
